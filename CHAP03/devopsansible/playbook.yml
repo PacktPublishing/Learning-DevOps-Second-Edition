@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  become: true
+  roles:
+    - ngnix
+
+- hosts: database
+  become: true
+  roles:
+    - mysql

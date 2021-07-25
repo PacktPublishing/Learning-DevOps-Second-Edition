@@ -1,0 +1,62 @@
+{
+  "variables": {
+    "clientid": "{{env `AZURECLIENT_ID`}}",
+    "clientsecret": "{{env `AZURE_CLIENT_SECRET`}}",
+    "subscriptionid": "{{env `AZURE_SUBSCRIPTION_ID`}}",
+    "tenantid": "{{env `AZURE_TENANT_ID`}}",
+    "resource_group": "rg_images",
+    "image_name": "linuxWebAnsible",
+    "image_version": "0.0.1",
+    "location": "West Europe",
+    "vm_size": "Standard_DS2_v3"
+  },
+  "builders": [
+    {
+      "type": "azure-arm",
+      "client_id": "{{user `clientid`}}",
+      "client_secret": "{{user `clientsecret`}}",
+      "subscription_id": "{{user `subscriptionid`}}",
+      "tenant_id": "{{user `tenantid`}}",
+      "managed_image_resource_group_name": "{{user `resource_group`}}",
+      "managed_image_name": "{{user `image_name`}}-{{user `image_version`}}",
+      "os_type": "Linux",
+      "ssh_username": "demo-book",
+      "image_publisher": "Canonical",
+      "image_offer": "UbuntuServer",
+      "image_sku": "18.04-LTS",
+      "location": "West Europe",
+      "vm_size": "Standard_DS2_v3",
+      "azure_tags": {
+        "version": "{{user `image_version`}}",
+        "role": "WebServer"
+      }
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "add-apt-repository ppa:ansible/ansible",
+        "apt-get update",
+        "apt-get install -y ansible"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "ansible/playbookdemo.yml"
+    },
+    {
+      "type": "shell",
+      "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+      "script": "clean.sh"
+    },
+    {
+      "type": "shell",
+      "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+      ]
+    }
+  ]
+}

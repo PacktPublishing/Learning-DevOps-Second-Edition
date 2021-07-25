@@ -1,0 +1,53 @@
+{
+
+    "variables": {
+        "clientid": "{{env `ARM_CLIENT_ID`}}",
+        "clientsecret": "{{env `ARM_CLIENT_SECRET`}}",
+        "subscriptionid": "{{env `ARM_SUBSCRIPTION_ID`}}",
+        "tenantid": "{{env `ARM_TENANT_ID`}}",
+        "resource_group": "rg_images",
+        "image_name": "linuxWeb",
+        "image_version": "0.0.1"
+    },
+
+    "builders": [{
+      "type": "azure-arm",
+  
+      "client_id": "{{user `clientid`}}",
+      "client_secret": "{{user `clientsecret`}}",
+      "subscription_id": "{{user `subscriptionid`}}",
+      "tenant_id": "{{user `tenantid`}}",
+  
+      "managed_image_resource_group_name": "{{user `resource_group`}}",
+      "managed_image_name": "{{user `image_name`}}-{{user `image_version`}}",
+  
+      "os_type": "Linux",
+      "image_publisher": "Canonical",
+      "image_offer": "UbuntuServer",
+      "image_sku": "18.04-LTS",
+      "location": "West Europe",
+      "vm_size": "Standard_DS2_v2",
+      "azure_tags": {
+          "version": "{{user `image_version`}}",
+          "role": "WebServer"
+      }
+    }],
+
+    "provisioners": [{
+      "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+      "type": "shell",
+      "inline": [
+        "apt-get update",
+        "apt-get -y install nginx"
+      ]
+     
+    },
+    {
+      "type": "shell",
+      "execute_command": "sudo sh -c '{{ .Vars }} {{ .Path }}'",
+      "inline": [
+        "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
+      ]
+    }
+  ]
+  }
