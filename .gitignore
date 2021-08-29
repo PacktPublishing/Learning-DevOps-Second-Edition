@@ -2,3 +2,4 @@
 **/terraform.tfstate
 **/terraform.tfstate.backup
 **/result-tests-local.xml
+**/.vagrant

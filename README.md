@@ -1,4 +1,4 @@
-# Learning DevOps 
+# Learning DevOps Second Edition
 
 <a href="https://www.packtpub.com/cloud-networking/learning-devops?utm_source=github&utm_medium=repository&utm_campaign=9781838642730"><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781838642730-original.jpeg" alt="Learning DevOps " height="256px" align="right"></a>
 
