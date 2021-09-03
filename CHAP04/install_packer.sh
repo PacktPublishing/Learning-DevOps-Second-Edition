@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PACKER_VERSION="1.7.3" #Update with your desired version
+PACKER_VERSION="1.7.4"
 
 curl -Os https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip \
 && curl -Os https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_SHA256SUMS \
