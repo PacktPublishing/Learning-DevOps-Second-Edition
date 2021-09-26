@@ -1,0 +1,34 @@
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - task: DotNetCoreCLI@2
+    displayName: "Restore"
+    inputs:
+      command: restore
+      projects: "**/*.csproj"
+
+
+  - task: DotNetCoreCLI@2
+    displayName: "build"
+    inputs:
+      command: "build"
+      projects: "**/*.csproj"
+      arguments: "--configuration Release"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Run tests"
+    inputs:
+      command: "test"
+      projects: "**/tests/*.csproj"
+      arguments: "--configuration Release"
+
+  - task: DotNetCoreCLI@2
+    displayName: "Code coverage"
+    inputs:
+      command: test
+      projects: "**/*Tests/*.csproj"
+      arguments: '--configuration Release --collect "Code coverage"'
