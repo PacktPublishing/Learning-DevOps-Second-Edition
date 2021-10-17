@@ -16,3 +16,8 @@ steps:
 
   - script: packer build $(Build.SourcesDirectory)/CHAP08/packer/.pkr.hcl
     displayName: Packer build template
+    env:
+      PKR_VAR_clientid: $(PKR_VAR_clientid)
+      PKR_VAR_clientsecret: $(PKR_VAR_clientsecret)
+      PKR_VAR_subscriptionid: $(PKR_VAR_subscriptionid)
+      PKR_VAR_tenantid: $(PKR_VAR_tenantid)
