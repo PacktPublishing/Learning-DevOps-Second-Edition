@@ -7,13 +7,21 @@ packer {
   }
 }
 
-variable "clientid" {}
+variable "clientid" {
+  default=""
+}
 
-variable "clientsecret" {}
+variable "clientsecret" {
+  default=""
+}
 
-variable "subscriptionid" {}
+variable "subscriptionid" {
+  default=""
+}
 
-variable "tenantid" {}
+variable "tenantid" {
+  default=""
+}
 
 variable "resource_group" {
     default ="rg_images"
@@ -27,7 +35,7 @@ variable "image_version" {
 
 //AZ
 source "azure-arm" "azurevm" {
-  client_id = var.client_id
+  client_id = var.clientid
   client_secret = var.clientsecret
   subscription_id = var.subscriptionid
   tenant_id = var.tenantid
