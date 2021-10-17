@@ -5,11 +5,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-  - script: packer init .pkr.hcl
+  - script: packer init $(Build.SourcesDirectory)/CHAP08/packer/.pkr.hcl
     displayName:  Packer init
 
-  - script: packer validate .pkr.hcl
+  - script: packer validate $(Build.SourcesDirectory)/CHAP08/packer/.pkr.hcl
     displayName: Packer validate template
 
-  - script: packer build .pkr.hcl
+  - script: packer build $(Build.SourcesDirectory)/CHAP08/packer/.pkr.hcl
     displayName: Packer build template
