@@ -5,6 +5,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+  - script: printenv
+    displayName:  display env vars
+
   - script: packer init $(Build.SourcesDirectory)/CHAP08/packer/.pkr.hcl
     displayName:  Packer init
 
