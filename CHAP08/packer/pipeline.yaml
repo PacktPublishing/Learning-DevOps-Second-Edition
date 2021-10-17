@@ -1,0 +1,15 @@
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - script: packer init .pkr.hcl
+    displayName:  Packer init
+
+  - script: packer validate .pkr.hcl
+    displayName: Packer validate template
+
+  - script: packer build .pkr.hcl
+    displayName: Packer build template
