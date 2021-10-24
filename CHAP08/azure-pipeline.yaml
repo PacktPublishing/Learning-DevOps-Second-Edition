@@ -7,3 +7,8 @@ pool:
 steps:
   - script: ansible-playbook $(Build.SourcesDirectory)/CHAP08/ansible/playbookdemo.yml -i $(Build.SourcesDirectory)/CHAP08/ansible/inv.azure_rm.yml
     displayName:  Ansible playbook
+    env:
+      AZURE_CLIENT_ID: $(AZURE_CLIENT_ID)
+      AZURE_SECRET: $(AZURE_SECRET)
+      AZURE_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      AZURE_TENANT: $(AZURE_TENANT)
