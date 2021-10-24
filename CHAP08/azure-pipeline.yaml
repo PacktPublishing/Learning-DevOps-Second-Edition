@@ -5,6 +5,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
+  - script: pip install ansible[azure]==2.8.6
+    displayName:  Get requirements
+
   - script: ansible-playbook $(Build.SourcesDirectory)/CHAP08/ansible/playbookdemo.yml -i $(Build.SourcesDirectory)/CHAP08/ansible/inv.azure_rm.yml
     displayName:  Ansible playbook
     env:
