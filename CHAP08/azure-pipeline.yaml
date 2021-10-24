@@ -1,0 +1,9 @@
+trigger:
+  - master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - script: ansible-playbook $(Build.SourcesDirectory)/CHAP08/ansible/playbookdemo.yml -i $(Build.SourcesDirectory)/CHAP08/ansible/inv.azure_rm.yml
+    displayName:  Ansible playbook
