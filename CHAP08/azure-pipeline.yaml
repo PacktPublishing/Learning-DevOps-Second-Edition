@@ -6,11 +6,42 @@ pool:
 
 steps:
 
+  ## TERRAFORM
+  - script: terraform init --backend-config backend.tfvars
+    displayName:  Terraform init
+    workingDirectory: $(Build.SourcesDirectory)/CHAP08/terraform
+    env:
+      ARM_CLIENT_ID: $(AZURE_CLIENT_ID)
+      ARM_CLIENT_SECRET: $(AZURE_SECRET)
+      ARM_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      ARM_TENANT_ID: $(AZURE_TENANT)
+      ARM_ACCESS_KEY: $(AZURE_ACCESS_KEY)
+
+  - script: terraform plan
+    displayName:  Terraform plan
+    workingDirectory: $(Build.SourcesDirectory)/CHAP08/terraform
+    env:
+      ARM_CLIENT_ID: $(AZURE_CLIENT_ID)
+      ARM_CLIENT_SECRET: $(AZURE_SECRET)
+      ARM_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      ARM_TENANT_ID: $(AZURE_TENANT)
+
+  - script: terraform apply -auto-approve
+    displayName:  Terraform apply
+    workingDirectory: $(Build.SourcesDirectory)/CHAP08/terraform
+    env:
+      ARM_CLIENT_ID: $(AZURE_CLIENT_ID)
+      ARM_CLIENT_SECRET: $(AZURE_SECRET)
+      ARM_SUBSCRIPTION_ID: $(AZURE_SUBSCRIPTION_ID)
+      ARM_TENANT_ID: $(AZURE_TENANT)
+
+  ## ANSIBLE
   - script: pip install ansible[azure]==2.8.6
     displayName:  Get requirements
 
-  - script: ansible-playbook $(Build.SourcesDirectory)/CHAP08/ansible/playbookdemo.yml -i $(Build.SourcesDirectory)/CHAP08/ansible/inv.azure_rm.yml
+  - script: ansible-playbook playbookdemo.yml -i inv.azure_rm.yml
     displayName:  Ansible playbook
+    workingDirectory: $(Build.SourcesDirectory)/CHAP08/ansible
     env:
       AZURE_CLIENT_ID: $(AZURE_CLIENT_ID)
       AZURE_SECRET: $(AZURE_SECRET)

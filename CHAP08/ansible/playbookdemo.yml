@@ -5,6 +5,7 @@
     - ansible_user: book
     - ansible_password: book123*
   tasks:
+
   - name: installing latest version of Ngnix
     apt: 
       name: nginx 
