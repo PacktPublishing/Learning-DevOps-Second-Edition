@@ -1,9 +1,7 @@
-provider "azurerm" {}
-
-terraform {
-  backend "azurerm" {}
-  required_version = ">= 0.12"
+provider "azurerm" {
+  features {}
 }
+
 
 resource "azurerm_resource_group" "acidemobook" {
   name     = "demoBook"
@@ -12,6 +10,7 @@ resource "azurerm_resource_group" "acidemobook" {
 
 variable "imageversion" {
   description = "Tag of the image to deploy"
+  default = "v1"
 }
 
 variable "dockerhub-username" {
@@ -36,9 +35,5 @@ resource "azurerm_container_group" "aci-myapp" {
       port     = 80
       protocol = "TCP"
     }
-
   }
-
-
-
 }
