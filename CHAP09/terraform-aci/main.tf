@@ -25,6 +25,7 @@ resource "azurerm_container_group" "aci-myapp" {
   ip_address_type     = "public"
   dns_name_label      = "myapp-demo"
   os_type             = "linux"
+  
   container {
     name   = "myappdemo"
     image  = "docker.io/${var.dockerhub-username}/demobook:${var.imageversion}"
