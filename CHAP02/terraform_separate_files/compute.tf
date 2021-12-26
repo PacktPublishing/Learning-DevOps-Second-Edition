@@ -16,7 +16,7 @@ resource "azurerm_public_ip" "pip" {
   location            = "West Europe"
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Dynamic"
-  domain_name_label   = "bookdevops"
+  domain_name_label   = "bookdevopsdemo"
 }
 
 resource "azurerm_storage_account" "stor" {

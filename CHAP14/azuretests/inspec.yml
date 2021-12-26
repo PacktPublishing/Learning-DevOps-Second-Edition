@@ -1,0 +1,14 @@
+name: azuretests
+title: InSpec Profile
+maintainer: Your name
+copyright: Your name
+copyright_email: you@example.com
+license: All Rights Reserved
+summary: An InSpec Compliance Profile
+version: 0.1.0
+inspec_version: '>= 4.23.15'
+depends:
+  - name: inspec-azure
+    url: https://github.com/inspec/inspec-azure/archive/refs/tags/v1.84.1.tar.gz
+supports:
+  - platform: azure

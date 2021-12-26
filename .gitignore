@@ -3,3 +3,4 @@
 **/terraform.tfstate.backup
 **/result-tests-local.xml
 **/.vagrant
+**/vendor
