@@ -28,13 +28,13 @@ alt="https://www.packtpub.com/" border="5" /></a>
 All of the code is organized into folders. For example, Chapter02.
 
 The code will look like the following:
-```
+```hcl
 resource "azurerm_resource_group" "rg" {
-     name = var.resoure_group_name
+    name = var.resoure_group_name
     location = var.location
-     tags {
+    tags {
          environment = "Terraform Azure"
-     }
+    }
 ```
 
 **Following is what you need for this book:**
@@ -47,7 +47,8 @@ With the following software and hardware list you can run all code files present
 | 2 | Terraform (latest) | Windows, Mac OS X, and Linux (Any) |
 | 3 | Ansible | Red Hat, Debian, CentOS, macOS, any of the BSDs |
 | 4 | Packer | Windows, Mac OS X, and Linux (Any) |
-| 5 | Git | Windows, Mac OS X, and Linux (Any) |
+| 5 | Vagrant | Windows, Mac OS X, and Linux (Any) |
+| 6 | Git | Windows, Mac OS X, and Linux (Any) |
 | 7-8 | Docker | Windows, Mac OS X, and Linux (Any) |
 | 10 | JRE (Java Runtime) | Windows, Mac OS X, and Linux (Any) |
 | 12 | Ruby | Windows, Mac OS X, and Linux (Any) |
