@@ -52,7 +52,7 @@ With the following software and hardware list you can run all code files present
 | 7-8 | Docker | Windows, Mac OS X, and Linux (Any) |
 | 10 | JRE (Java Runtime) | Windows, Mac OS X, and Linux (Any) |
 | 12 | Ruby | Windows, Mac OS X, and Linux (Any) |
-| 12 | Inspec | Windows, Mac OS X, and Linux (Any) |
+| 12 | Inspec from Chef | Windows, Mac OS X, and Linux (Any) |
 
 We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781838642730_ColorImages.pdf).
 
