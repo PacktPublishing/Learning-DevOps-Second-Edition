@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "7"
+install:
+  - cd ./CHAP14/appdemo/
+  - npm install
+script:
+  - npm run build
+  - npm run test
