@@ -1,7 +1,3 @@
-## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B17725?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
------
-For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
-
 # Learning DevOps Second Edition
 
 <a href="https://www.packtpub.com/product/learning-devops-second-edition/9781801818964"><img src="https://images-na.ssl-images-amazon.com/images/I/31-t9tz9vLL._SX404_BO1,204,203,200_.jpg" alt="Book Name" height="256px" align="right"></a>
