@@ -1,3 +1,15 @@
+
+### Get this product for $5
+
+<i>Packt is having its biggest sale of the year. Get this eBook or any other book, video, or course that you like just for $5 each</i>
+
+
+<b><p align='center'>[Buy now](https://packt.link/9781801818964)</p></b>
+
+
+<b><p align='center'>[Buy similar titles for just $5](https://subscription.packtpub.com/search)</p></b>
+
+
 # Learning DevOps Second Edition
 
 <a href="https://www.packtpub.com/product/learning-devops-second-edition/9781801818964"><img src="https://images-na.ssl-images-amazon.com/images/I/31-t9tz9vLL._SX404_BO1,204,203,200_.jpg" alt="Book Name" height="256px" align="right"></a>
